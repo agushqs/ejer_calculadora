@@ -1,6 +1,6 @@
 name: Calculadora Java
 
-on:
+on: [ push ]
 
 jobs:
   test-calculadora:
@@ -22,5 +22,4 @@ jobs:
           javac -d out src/*.java
 
       - name: Ejecutar tests y subirlos
-        run: java -ae -cp out CalculadoraTest	  
-	  
+        run: java -ea -cp out CalculadoraTest	  
