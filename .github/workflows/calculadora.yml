@@ -1,24 +1,26 @@
-name: Calculadora Java
+name: Calculadora java
 
 on: [ push ]
 
 jobs:
-  test-calculadora:
+  calculadora-test:
     runs-on: ubuntu-latest
     steps:
-      - name: subir datos
-        uses: actions/checkout@v4
+    
+      - name: descargar datos
+        uses: actions/checkout@v5
         
-      - name: configurar java
-        uses: actions/setup-java@v4
+      - name: configuramos java
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '21'
-
-      - name: Compilar y guardar en Out
+          
+      - name: compilar y guardar
         run: |
           mkdir -p out
-          javac -d out src/*.java
-
-      - name: Ejecutar tests y subirlos
-        run: java -ea -cp out CalculadoraTest	  
+          javac -d out src/*.java   
+      
+      - name: ejecutar tests
+        run: java -ea -cp out CalculadoraTest
+        
